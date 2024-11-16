@@ -1,7 +1,3 @@
-Berikut adalah versi README.md yang mencakup file tambahan seperti `register.php` dan `users.php`:
-
----
-
 # **PETANIFY**
 
 **PETANIFY** adalah website pertanian sederhana yang ditujukan untuk memenuhi Tugas Elearning Pemrograman WEB 1. Website ini menyediakan berbagai fitur yang mendukung aktivitas pertanian serta memanfaatkan teknologi modern untuk memberikan solusi yang bermanfaat bagi pengguna.
@@ -22,21 +18,6 @@ Berikut adalah versi README.md yang mencakup file tambahan seperti `register.php
 
 ---
 
-## **Teknologi yang Digunakan**
-
-- **HTML5**: Menyediakan struktur dasar halaman web.
-- **CSS3**: Digunakan untuk desain dan gaya pada elemen web.
-- **Bootstrap 5.3.3**: Framework CSS yang digunakan untuk membuat tata letak responsif dan elemen UI yang konsisten.
-- **JavaScript (ES6)**: Bahasa pemrograman yang digunakan untuk menambahkan interaktivitas pada aplikasi.
-- **PHP**: Backend sederhana untuk menyimpan dan memuat data pengguna, forum, dan jurnal ke/dari file `.txt`.
-- **File `.txt`**: Media penyimpanan sederhana untuk menyimpan data pengguna, jurnal aktivitas, dan forum diskusi.
-- **Fetch API**: API JavaScript yang digunakan untuk komunikasi dengan server PHP.
-- **API BMKG**: Sumber data cuaca untuk menampilkan prakiraan cuaca secara real-time bagi pengguna.
-- **Font Awesome**: Digunakan untuk ikon sosial media dan ikon lainnya di berbagai bagian halaman.
-- **Visual Studio Code**: Editor yang digunakan dalam pengembangan aplikasi ini.
-
----
-
 ## **Fitur Tambahan**
 
 - **Penyimpanan Data Sederhana**:
@@ -54,6 +35,21 @@ Berikut adalah versi README.md yang mencakup file tambahan seperti `register.php
   - Tata letak halaman yang responsif menggunakan Bootstrap.
 
 ---
+
+## **Teknologi yang Digunakan**
+
+- **HTML5**: Menyediakan struktur dasar halaman web.
+- **CSS3**: Digunakan untuk desain dan gaya pada elemen web.
+- **Bootstrap 5.3.3**: Framework CSS yang digunakan untuk membuat tata letak responsif dan elemen UI yang konsisten.
+- **JavaScript (ES6)**: Bahasa pemrograman yang digunakan untuk menambahkan interaktivitas pada aplikasi.
+- **PHP**: Backend sederhana untuk menyimpan dan memuat data pengguna, forum, dan jurnal ke/dari file `.txt`.
+- **File `.txt`**: Media penyimpanan sederhana untuk menyimpan data pengguna, jurnal aktivitas, dan forum diskusi.
+- **Fetch API**: API JavaScript yang digunakan untuk komunikasi dengan server PHP.
+- **API BMKG**: Sumber data cuaca untuk menampilkan prakiraan cuaca secara real-time bagi pengguna.
+- **Visual Studio Code**: Editor yang digunakan dalam pengembangan aplikasi ini.
+
+---
+
 
 ## **Struktur Folder**
 
@@ -101,35 +97,3 @@ Berikut adalah daftar file dan fungsi utamanya:
 
 ---
 
-## **Langkah Instalasi**
-
-1. **Download atau Clone Repositori**
-   ```bash
-   git clone https://github.com/username/PETANIFY.git
-   ```
-
-2. **Pindahkan ke Server Lokal**
-   Salin semua file ke dalam folder server lokal Anda (misalnya `htdocs` jika menggunakan XAMPP).
-
-3. **Jalankan Aplikasi**
-   Buka browser dan akses URL:
-   ```
-   http://localhost/PETANIFY
-   ```
-
-4. **Konfigurasi**
-   - Pastikan server PHP aktif.
-   - Pastikan file `.txt` memiliki izin tulis (write permissions).
-
----
-
-## **Saran Pengembangan**
-
-1. Migrasikan penyimpanan data dari file `.txt` ke database seperti **MySQL** untuk meningkatkan skalabilitas.
-2. Tambahkan fitur pencarian di forum dan jurnal untuk mempermudah pengguna menemukan topik/aktivitas tertentu.
-3. Tambahkan fitur autentikasi token untuk meningkatkan keamanan login.
-4. Gunakan framework backend seperti **Laravel** atau **CodeIgniter** untuk pengembangan yang lebih terstruktur.
-
----
-
-Dengan README ini, Anda memiliki dokumentasi yang lengkap dan profesional untuk proyek **PETANIFY** Anda. Jika ada tambahan fitur lain yang ingin dijelaskan, beri tahu saya! 😊

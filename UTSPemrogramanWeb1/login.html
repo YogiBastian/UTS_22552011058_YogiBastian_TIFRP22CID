@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Login - PETANIFY</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="manual.css">
+</head>
+<body>
+    <div class="container login-container">
+            <div class="description">
+                <h1>PETANIFY</h1>
+                <p>PETANIFY membantu petani untuk mendapatkan solusi dan informasi terbaik terkait pertanian. Bergabunglah dengan komunitas kami untuk meningkatkan hasil pertanian Anda.</p>
+            </div>
+            <hr>
+
+            <div class="col-md-6">
+                <div class="login-form">
+                    <form onsubmit="return validateLogin()">
+                        <div class="form-group">
+                            <label for="emailOrPhone">Alamat Email atau Nomor Telepon</label>
+                            <input type="text" class="form-control" id="emailOrPhone" placeholder="Masukkan email atau nomor telepon Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Masukkan password Anda" required>
+                        </div>
+                        <hr>
+                        <button type="submit" class="btn btn-login">Masuk</button>
+                        <a href="register.html" class="btn btn-register mt-3">Buat Akun Baru</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        async function validateLogin() {
+            const username = document.getElementById("emailOrPhone").value;
+            const password = document.getElementById("password").value;
+
+            try {
+                // Fetch data from users.php
+                const response = await fetch('users.php');
+                const users = await response.json();
+
+                // Check if the username and password match any user
+                const user = users.find(
+                    user => user.email_or_phone === username && user.password === password
+                );
+
+                if (user) {
+                    alert(`Login Berhasil! Selamat datang, ${user.fullname}`);
+                    window.location.href = "main.html";
+                } else {
+                    alert("Username atau Password salah. Silakan coba lagi.");
+                }
+            } catch (error) {
+                console.error("Error fetching user data:", error);
+                alert("Terjadi kesalahan. Silakan coba lagi nanti.");
+            }
+
+            return false; // Mencegah form dari pengiriman ulang
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Konsultasi Ahli - PETANIFY</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="manual.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #007bff;">
+        <div class="container">
+            <a class="navbar-brand text-white" href="#">
+                <img src="img/Logo.png" alt="Logo" style="width: 60px;"> PETANIFY
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="main.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="forum.html">Forum</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="konsultasi.html">Konsultasi Ahli</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="cuaca.html">Cuaca & Rekomendasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="marketplace.html">Marketplace</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="jurnal.html">Aktivitas Pertanian</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="index.html">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Konsultasi Section -->
+    <section class="container my-5">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <h2 class="mb-4 text-center">Konsultasi Ahli Pertanian</h2>
+                <p class="text-center">Silakan isi formulir di bawah untuk mengajukan pertanyaan kepada ahli pertanian kami. Kami siap membantu Anda dalam mengatasi berbagai masalah pertanian.</p>
+
+                <!-- Form untuk Konsultasi -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Formulir Konsultasi</h5>
+                        <form id="form-konsultasi">
+                            <div class="form-group">
+                                <label for="nama">Nama Lengkap</label>
+                                <input type="text" id="nama" class="form-control" placeholder="Masukkan nama lengkap Anda" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" class="form-control" placeholder="Masukkan email Anda" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="topik">Topik Konsultasi</label>
+                                <select id="topik" class="form-control" required>
+                                    <option value="">Pilih topik</option>
+                                    <option value="Pengelolaan Lahan">Pengelolaan Lahan</option>
+                                    <option value="Pemupukan">Pemupukan</option>
+                                    <option value="Pengendalian Hama">Pengendalian Hama</option>
+                                    <option value="Teknik Tanam">Teknik Tanam</option>
+                                    <option value="Lainnya">Lainnya</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="pesan">Pertanyaan Anda</label>
+                                <textarea id="pesan" class="form-control" rows="5" placeholder="Tulis pertanyaan Anda di sini" required></textarea>
+                            </div>
+                           <br> <button type="submit" class="btn btn-primary">Kirim Pertanyaan</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-primary py-4">
+        <div class="container text-center">
+            <!-- Logo dan Nama -->
+            <div class="footer-logo mb-3">
+                <img src="img/Logo.png" class="logo" style="width: 100px;">
+            </div>
+    
+            <!-- Navigasi Footer -->
+            <p>
+                <a href="tentang.html" class="text-white mx-2">FAQs</a>
+                <a href="tentang.html" class="text-white mx-2">About</a>
+                <a href="tentang.html" class="text-white mx-2">Service</a>
+                <a href="tentang.html" class="text-white mx-2">Contact Us</a>
+            </p>
+            <br>
+    
+            <!-- Copyright -->
+            <p class="text-white">&copy; Copyright by 22552011058_Yogi Bastian_TIF RP 22 CID</p>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Simulasi pengiriman form konsultasi (tanpa backend)
+        document.getElementById("form-konsultasi").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Ambil data dari form
+            const nama = document.getElementById("nama").value;
+            const email = document.getElementById("email").value;
+            const topik = document.getElementById("topik").value;
+            const pesan = document.getElementById("pesan").value;
+
+            // Simulasi pemberitahuan pengiriman
+            alert(`Terima kasih, ${nama}! Pertanyaan Anda tentang "${topik}" telah dikirim dari ${email}.\nFitur ini hanya prototipe untuk tugas`);
+
+            // Reset form setelah submit
+            document.getElementById("form-konsultasi").reset();
+        });
+    </script>
+</body>
+</html>

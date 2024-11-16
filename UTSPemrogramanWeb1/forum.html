@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Forum Diskusi Komunitas - PETANIFY</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="manual.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #007bff;">
+        <div class="container">
+            <a class="navbar-brand text-white" href="#">
+                <img src="img/Logo.png" alt="Logo" style="width: 60px;"> PETANIFY
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="main.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="forum.html">Forum</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="konsultasi.html">Konsultasi Ahli</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="cuaca.html">Cuaca & Rekomendasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="marketplace.html">Marketplace</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="jurnal.html">Aktivitas Pertanian</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="index.html">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Forum Section -->
+    <section class="container my-5">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <h2 class="mb-4 text-center">Forum Diskusi Komunitas</h2>
+
+                <!-- Form untuk Membuat Topik Baru -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Buat Topik Baru</h5>
+                        <form id="form-topik">
+                            <div class="form-group">
+                                <label for="judul">Judul Topik</label>
+                                <input type="text" id="judul" class="form-control" placeholder="Masukkan judul topik" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="konten">Isi Diskusi</label>
+                                <textarea id="konten" class="form-control" rows="3" placeholder="Tulis isi diskusi" required></textarea>
+                            </div>
+                            <br><button type="submit" class="btn btn-primary">Posting</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Daftar Topik Diskusi -->
+                <div id="daftar-topik">
+                    <h5>Daftar Topik</h5>
+                    <!-- Topik diskusi akan dimuat di sini -->
+                </div>
+                
+    </section>
+
+    <footer class="bg-primary py-4">
+        <div class="container text-center">
+            <!-- Logo dan Nama -->
+            <div class="footer-logo mb-3">
+                <img src="img/Logo.png" class="logo" style="width: 100px;">
+            </div>
+    
+            <!-- Navigasi Footer -->
+            <p>
+                <a href="tentang.html" class="text-white mx-2">FAQs</a>
+                <a href="tentang.html" class="text-white mx-2">About</a>
+                <a href="tentang.html" class="text-white mx-2">Service</a>
+                <a href="tentang.html" class="text-white mx-2">Contact Us</a>
+            </p>
+            <br>
+    
+            <!-- Copyright -->
+            <p class="text-white">&copy; Copyright by 22552011058_Yogi Bastian_TIF RP 22 CID</p>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+       // Ketika halaman dimuat, ambil data dari server dan tampilkan di halaman
+    document.addEventListener("DOMContentLoaded", function () {
+        // Ambil data dari file .txt melalui forum_load.php
+        fetch("forum_load.php")
+            .then((response) => response.json())
+            .then((entries) => {
+                const daftarTopik = document.getElementById("daftar-topik");
+                // Hapus placeholder
+                daftarTopik.innerHTML = '<h5>Daftar Topik</h5>';
+                // Tampilkan semua topik dari file
+                entries.forEach((entry) => {
+                    tambahTopik(entry.judul, entry.konten);
+                });
+            })
+            .catch((error) => console.error("Error saat memuat data:", error));
+    });
+
+    // Ketika form dikirim, simpan data ke file .txt dan tambahkan ke halaman
+    document.getElementById("form-topik").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const judul = document.getElementById("judul").value;
+        const konten = document.getElementById("konten").value;
+
+        if (judul && konten) {
+            // Kirim data ke server menggunakan Fetch
+            fetch("forum_save.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: `judul=${encodeURIComponent(judul)}&konten=${encodeURIComponent(konten)}`,
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    if (data.status === "success") {
+                        // Tambahkan topik ke halaman setelah berhasil disimpan
+                        tambahTopik(judul, konten);
+                        document.getElementById("form-topik").reset();
+                    } else {
+                        alert(data.message);
+                    }
+                })
+                .catch((error) => console.error("Error saat menyimpan data:", error));
+        }
+    });
+
+    // Fungsi untuk menambahkan topik ke halaman
+    function tambahTopik(judul, konten) {
+        const daftarTopik = document.getElementById("daftar-topik");
+
+        const topikHTML = `
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h6 class="card-title">${judul}</h6>
+                    <p class="card-text">${konten}</p>
+                    <a href="comingsoon_forum.html" class="btn btn-link">Komentar</a>
+                </div>
+            </div>
+        `;
+
+        daftarTopik.insertAdjacentHTML("beforeend", topikHTML);
+    }
+    </script>
+</body>
+</html>

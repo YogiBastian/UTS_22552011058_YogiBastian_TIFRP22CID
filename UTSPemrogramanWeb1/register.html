@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Register - PETANIFY</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="manual.css">
+</head>
+<body>
+    <div class="container register-container">
+        <!-- Form Register -->
+        <div class="register-form">
+            <form action="register.php" method="POST">
+                <h2 class="text-center mb-4">Buat Akun Baru</h2>
+                <div class="form-group">
+                    <label>Nama Lengkap</label>
+                    <input type="text" name="fullname" class="form-control" placeholder="Masukkan nama lengkap Anda" required>
+                </div>
+                <div class="form-group">
+                    <label>Alamat Email atau Nomor Telepon</label>
+                    <input type="text" name="email_or_phone" class="form-control" placeholder="Masukkan email atau nomor telepon Anda" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password" class="form-control" placeholder="Masukkan password Anda" required>
+                </div>
+                <button type="submit" class="btn btn-register mt-3">Daftar</button>
+                <a href="login.html" class="d-block text-center mt-2" style="color: #007bff;">Sudah punya akun? Masuk di sini</a>
+            </form>
+        </div>
+
+        <!-- Deskripsi PETANIFY -->
+        <div class="description">
+            <h1>PETANIFY</h1>
+            <p>PETANIFY membantu petani untuk mendapatkan solusi dan informasi terbaik terkait pertanian. Bergabunglah dengan komunitas kami untuk meningkatkan hasil pertanian Anda.</p>
+        </div>
+    </div>
+
+</body>
+</html>

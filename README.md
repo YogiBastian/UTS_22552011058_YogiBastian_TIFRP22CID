@@ -1,6 +1,6 @@
 # **PETANIFY**
 
-**PETANIFY** adalah website pertanian sederhana yang ditujukan untuk memenuhi Tugas Elearning Pemrograman WEB 1. Website ini menyediakan berbagai fitur yang mendukung aktivitas pertanian serta memanfaatkan teknologi modern untuk memberikan solusi yang bermanfaat bagi pengguna.
+**PETANIFY** adalah website pertanian sederhana yang dikembangkan sebagai lanjutan dari Tugas Elearning sebelumnya dan ditujukan untuk memenuhi UTS Pemrograman WEB 1. Website ini menyediakan berbagai fitur baru yang mendukung aktivitas pertanian dengan memanfaatkan teknologi modern untuk memberikan solusi yang bermanfaat bagi pengguna.
 
 ---
 
@@ -50,7 +50,6 @@
 
 ---
 
-
 ## **Struktur Folder**
 
 Berikut adalah daftar file dan fungsi utamanya:
@@ -89,7 +88,6 @@ Berikut adalah daftar file dan fungsi utamanya:
 
 ### **Forum Diskusi**
 - Tambah topik: Data topik disimpan di `forum_data.txt`.
-- Hapus topik: Data dapat dihapus melalui tombol di tampilan, dan juga dihapus dari file `forum_data.txt`.
 
 ### **Jurnal Aktivitas**
 - Tambah aktivitas: Aktivitas disimpan di `jurnal_data.txt`.
